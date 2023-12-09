@@ -12,6 +12,7 @@ const GetCollectionAsset = () => {
         e.preventDefault()
         const {target} = e;
         const data = await Service.getCollectionAsset();
+        console.log(data)
         setCollectionState(data);
         console.log(collectionState)
 
