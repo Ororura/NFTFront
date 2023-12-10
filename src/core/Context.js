@@ -9,6 +9,7 @@ export const ContextWrapper = ({children}) => {
   const [allAssetsState, setAllAssetsState] = useState([])
   const [discountState, setDiscountState] = useState("0");
   const [refState, setRefState] = useState("");
+  const [betState, setBetState] = useState([]);
 
 
   useEffect(() => {
@@ -26,6 +27,11 @@ export const ContextWrapper = ({children}) => {
     setRefState(data);
   };
 
+  const getBet = async (id, e) => {
+    const bets = await Service.getBet(0);
+    setBetState(bets);
+  };
+
   const updateDiscount = async () => {
     const discount = await Service.getDiscount(refState);
     setDiscountState(discount)
@@ -38,6 +44,6 @@ export const ContextWrapper = ({children}) => {
   };
 
 
-  const values = {walletState, connect, userNFTState, setWalletState, allAssetsState, discountState, updateDiscount};
+  const values = {walletState, connect, userNFTState, setWalletState, allAssetsState, discountState, updateDiscount, betState, getBet, getRef, refState};
   return <Context.Provider value={values}>{children}</Context.Provider>;
 };

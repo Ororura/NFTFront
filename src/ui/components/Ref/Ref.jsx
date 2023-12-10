@@ -5,9 +5,7 @@ import {Context} from "../../../core/Context";
 import Container from "../HOC/Container";
 
 const Ref = () => {
-      const [refState, setRefState] = useState("");
-
-      const {walletState, updateDiscount, discountState} = useContext(Context);
+      const {walletState, updateDiscount, discountState, getRef, refState} = useContext(Context);
 
 
       const handlerCreateRef = async () => {
@@ -15,8 +13,7 @@ const Ref = () => {
       };
 
       const handlerGetRef = async () => {
-        const data = await Service.getUserReferral(walletState);
-        setRefState(data);
+        await getRef();
       };
 
       const handlerUpdateDiscount = async (e) => {
