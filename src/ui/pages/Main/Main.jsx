@@ -1,17 +1,17 @@
-import React, {useContext} from "react";
-import {Context} from "../../../core/Context";
+import React, { useContext } from "react";
+import { Context } from "../../../core/Context";
 import Ref from "../../components/Ref/Ref";
 import UserAsset from "../../components/UserAsset/UserAsset";
 import Info from "../../components/Info/Info";
 
 const Main = () => {
-  const {walletState} = useContext(Context);
+  const { walletState } = useContext(Context);
   return (
-      <div className="main-wrapper">
-        {walletState !== "" && <Info/>}
-        <Ref/>
-        <UserAsset/>
-      </div>
+    <div className="main-wrapper">
+      {walletState !== "" && <Info />}
+      <Ref />
+      <UserAsset />
+    </div>
   );
 };
 

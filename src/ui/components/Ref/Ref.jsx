@@ -27,24 +27,46 @@ const Ref = () => {
       }
 
       return (
-          <Container>
-            <Button style={{margin: "10px"}} onClick={handlerCreateRef} variant="primary" type="submit">
-              Создать рефералку
+        <Container>
+          <Button
+            style={{ margin: "10px" }}
+            onClick={handlerCreateRef}
+            variant="primary"
+            type="submit"
+          >
+            Создать рефералку
+          </Button>
+          <Button
+            style={{ margin: "10px" }}
+            onClick={handlerGetRef}
+            type="submit"
+          >
+            Узнать свой реферальный код
+          </Button>
+          {refState !== "" && (
+            <Button style={{ margin: "10px" }} onClick={handlerUpdateDiscount}>
+              Узнать процент скидки
             </Button>
-            <Button style={{margin: "10px"}} onClick={handlerGetRef} type="submit">
-              Узнать свой реферальный код
-            </Button>
-            {refState !== "" && <Button style={{margin: "10px"}} onClick={handlerUpdateDiscount}>Узнать процент скидки</Button>}
-            {discountState !== "" && <p className="text-center">Ваш процент скидки: {discountState}</p>}
-            <p className="text-center">{refState}</p>
-            <Form onSubmit={handlerUseReferral}>
-              <FormGroup controlId="referrals">
-                <Form.Label className="text-center">Использовать промокод</Form.Label>
-                <Form.Control type="text" placeholder="Введите промокод"></Form.Control>
-                <Button style={{margin: "10px"}} type="submit">Использовать</Button>
-              </FormGroup>
-            </Form>
-          </Container>
+          )}
+          {discountState !== "" && (
+            <p className="text-center">Ваш процент скидки: {discountState}</p>
+          )}
+          <p className="text-center">{refState}</p>
+          <Form onSubmit={handlerUseReferral}>
+            <FormGroup controlId="referrals">
+              <Form.Label className="text-center">
+                Использовать промокод
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Введите промокод"
+              ></Form.Control>
+              <Button style={{ margin: "10px" }} type="submit">
+                Использовать
+              </Button>
+            </FormGroup>
+          </Form>
+        </Container>
       );
     }
 ;

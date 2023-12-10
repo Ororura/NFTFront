@@ -8,15 +8,17 @@ import GetBet from "../../components/GetBet/GetBet";
 import Auc from "../../components/Auc/Auc";
 
 const MarketPlace = () => {
-  return (<div className="main-wrapper">
-    <Auc/>
-    <GetBet/>
-    <TransferNft/>
-    <GetSellsAssets/>
-    <SellNFT/>
-    <CreateNFT/>
-    <CreateCollection/>
-  </div>)
-}
+  return (
+    <div className="main-wrapper">
+      <Auc />
+      <GetBet />
+      <TransferNft />
+      <GetSellsAssets />
+      <SellNFT />
+      <CreateNFT />
+      <CreateCollection />
+    </div>
+  );
+};
 
 export default MarketPlace;
