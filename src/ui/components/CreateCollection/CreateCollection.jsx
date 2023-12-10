@@ -22,6 +22,7 @@ const CreateCollection = () => {
   return (
     <Container>
       <Form onSubmit={handler}>
+        <Form.Label>Создать коллекцию</Form.Label>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Введите название</Form.Label>
           <Form.Control type="text" placeholder="Название" />

@@ -2,7 +2,7 @@ import Web3 from "web3";
 import abi from "./abi.json";
 
 class Service {
-  addressContract = "0x0758E9FA0069a8F633337603421FD69735D7277F";
+  addressContract = "0x85B276B1a297E963fD892EF35F0B45fC5A5885B2";
   web3 = new Web3(window.ethereum);
   contract = new this.web3.eth.Contract(abi, this.addressContract);
 
@@ -145,6 +145,32 @@ class Service {
   async getAuctionArray(id) {
     try {
       return await this.contract.methods.getAuctionArray(id).call();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async bet(id, bet, wallet) {
+    try {
+      return await this.contract.methods.bet(id, bet).send({ from: wallet });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async getTime() {
+    try {
+      return await this.contract.methods.getTime().call();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async startAuc(id, timeStart, timeEnd, maxPrice, wallet) {
+    try {
+      return await this.contract.methods
+        .startAuc(id, timeStart, timeEnd, maxPrice)
+        .send({ from: wallet });
     } catch (e) {
       console.log(e);
     }

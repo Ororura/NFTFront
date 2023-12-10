@@ -23,7 +23,7 @@ const CreateNFT = () => {
   return (
     <Container>
       <Form onSubmit={handler}>
-        <Form.Text>Создать NFT</Form.Text>
+        <Form.Label>Создать NFT</Form.Label>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Введите название</Form.Label>
           <Form.Control type="text" placeholder="Название" />

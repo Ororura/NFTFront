@@ -10,6 +10,7 @@ export const ContextWrapper = ({ children }) => {
   const [discountState, setDiscountState] = useState("0");
   const [refState, setRefState] = useState("");
   const [betState, setBetState] = useState([]);
+  const [timeState, setTimeState] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -36,6 +37,11 @@ export const ContextWrapper = ({ children }) => {
     setDiscountState(discount);
   };
 
+  const getTime = async () => {
+    const time = await Service.getTime();
+    setTimeState(time);
+  };
+
   const connect = () => {
     window.ethereum.request({ method: "eth_requestAccounts" }).then((ac) => {
       setWalletState(ac[0]);
@@ -54,6 +60,8 @@ export const ContextWrapper = ({ children }) => {
     getBet,
     getRef,
     refState,
+    getTime,
+    timeState,
   };
   return <Context.Provider value={values}>{children}</Context.Provider>;
 };
