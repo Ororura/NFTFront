@@ -6,6 +6,7 @@ import {Context} from "../../../core/Context";
 
 const CreateCollection = () => {
   const {walletState} = useContext(Context);
+
   const handler = async (e) => {
     e.preventDefault()
     const {target} = e;

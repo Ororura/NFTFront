@@ -133,8 +133,6 @@ class Service {
       console.log(e)
     }
   }
-
-
 }
 
 export default new Service();

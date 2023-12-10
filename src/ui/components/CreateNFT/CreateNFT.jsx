@@ -6,11 +6,13 @@ import {Context} from "../../../core/Context";
 
 const CreateNFT = () => {
   const {walletState} = useContext(Context)
+
   const handler = async (e) => {
     e.preventDefault();
     const {target} = e;
     await Service.createNFT(target.name.value, target.desc.value, target.img.value, target.price.value, target.amount.value, walletState);
   }
+
   return (
       <Container>
         <Form onSubmit={handler}>

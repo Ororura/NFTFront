@@ -7,7 +7,6 @@ import Container from "../HOC/Container";
 const Ref = () => {
       const {walletState, updateDiscount, discountState, getRef, refState} = useContext(Context);
 
-
       const handlerCreateRef = async () => {
         await Service.createRef(walletState);
       };
@@ -26,6 +25,7 @@ const Ref = () => {
         e.preventDefault();
         await Service.referralUse(target.referrals.value, walletState);
       }
+
       return (
           <Container>
             <Button style={{margin: "10px"}} onClick={handlerCreateRef} variant="primary" type="submit">

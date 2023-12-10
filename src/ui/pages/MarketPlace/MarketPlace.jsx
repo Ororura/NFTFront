@@ -9,8 +9,8 @@ import Auc from "../../components/Auc/Auc";
 
 const MarketPlace = () => {
   return (<div className="main-wrapper">
-    <Auc></Auc>
-    <GetBet></GetBet>
+    <Auc/>
+    <GetBet/>
     <TransferNft/>
     <GetSellsAssets/>
     <SellNFT/>

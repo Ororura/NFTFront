@@ -43,7 +43,6 @@ export const ContextWrapper = ({children}) => {
     });
   };
 
-
   const values = {walletState, connect, userNFTState, setWalletState, allAssetsState, discountState, updateDiscount, betState, getBet, getRef, refState};
   return <Context.Provider value={values}>{children}</Context.Provider>;
 };

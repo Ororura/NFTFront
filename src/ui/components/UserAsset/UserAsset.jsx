@@ -5,9 +5,6 @@ import { Context } from "../../../core/Context";
 
 const UserAsset = () => {
   const { userNFTState } = useContext(Context);
-  useEffect(() => {
-    console.log(userNFTState)
-  }, []);
 
   return (
       <>

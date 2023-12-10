@@ -10,13 +10,10 @@ const GetCollectionAsset = () => {
 
     const handler = async (e) => {
         e.preventDefault()
-        const {target} = e;
         const data = await Service.getCollectionAsset();
-        console.log(data)
         setCollectionState(data);
-        console.log(collectionState)
-
     }
+
     return (
         <Container>
             <Form onSubmit={handler}>

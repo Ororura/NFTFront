@@ -7,11 +7,13 @@ import {Context} from "../../../core/Context";
 
 const SellNFT = () => {
   const {walletState} = useContext(Context);
+
   const handler = async (e) => {
     e.preventDefault();
     const {target} = e;
     await Service.sellNFT(target.id.value, target.amount.value, target.price.value, walletState);
   }
+
   return (
       <Container>
         <Form onSubmit={handler}>
