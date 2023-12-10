@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect} from "react";
 import { Card } from "react-bootstrap";
 import Container from "../HOC/Container";
 import { Context } from "../../../core/Context";
 
 const UserAsset = () => {
   const { userNFTState } = useContext(Context);
+  useEffect(() => {
+    console.log(userNFTState)
+  }, []);
 
   return (
       <>
@@ -12,6 +15,7 @@ const UserAsset = () => {
             <Container>
               <p className="text-center">Ваши NFT</p>
               {userNFTState.map((el) => (
+                  el.name !== "" &&
                   <Card key={el.id} style={{ width: '18rem', margin: "20px"}}>
                     <Card.Img variant="top" src={`assets/${el.img}`} />
                     <Card.Body>

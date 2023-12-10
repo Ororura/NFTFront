@@ -2,7 +2,7 @@ import Web3 from "web3";
 import abi from "./abi.json";
 
 class Service {
-  addressContract = "0x0Fa0962c32661C3BFbcd0DC02C7178F1d82A2dBe";
+  addressContract = "0x768f1947DFC5ce0673dBD2B0a29EB9Be7fa4886C";
   web3 = new Web3(window.ethereum);
   contract = new this.web3.eth.Contract(abi, this.addressContract);
 
@@ -93,6 +93,30 @@ class Service {
       console.log(e)
     }
   }
+
+  async transferNFT(id, receiver, amount, wallet) {
+    try {
+      return await this.contract.methods.transferNFT(id, receiver, amount).send({from: wallet})
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async sellNFT(id, amount, price, wallet) {
+    try {
+      return await this.contract.methods.sellNFT(id, amount, price).send({from: wallet})
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  async buyNFT(id, amount, discount, wallet) {
+    try {
+      return await this.contract.methods.buyNFT(id, amount, discount).send({from: wallet})
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
 
 }
 
