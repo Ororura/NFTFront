@@ -8,17 +8,23 @@ import GetBet from "../../components/GetBet/GetBet";
 import Auc from "../../components/Auc/Auc";
 import Bet from "../../components/Bet/Bet";
 import StartAuc from "../../components/StartAuc/StartAuc";
+import UpBet from "../../components/UpBet/UpBet";
+import ChangeSellPrice from "../../components/ChangeSellPrice/ChangeSellPrice";
+import FinishAuc from "../../components/FinishAuc/FinishAuc";
 
 const MarketPlace = () => {
   return (
     <div className="main-wrapper">
       <Auc />
       <Bet />
+      <UpBet />
       <GetBet />
       <StartAuc />
+      <FinishAuc />
       <TransferNft />
       <GetSellsAssets />
       <SellNFT />
+      <ChangeSellPrice />
       <CreateNFT />
       <CreateCollection />
     </div>

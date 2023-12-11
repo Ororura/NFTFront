@@ -4,18 +4,19 @@ import Container from "../HOC/Container";
 import Service from "../../../services/Service";
 import { Context } from "../../../core/Context";
 
-const Bet = () => {
+const UpBet = () => {
   const { walletState } = useContext(Context);
+
   const handler = async (e) => {
     e.preventDefault();
     const { target } = e;
-    await Service.bet(target.id.value, target.bet.value, walletState);
+    await Service.upBet(target.id.value, target.bet.value, walletState);
   };
 
   return (
     <Container>
       <Form onSubmit={handler}>
-        <Form.Text>Сделать ставку</Form.Text>
+        <Form.Text>Повысить ставку</Form.Text>
         <Form.Group className="mb-3" controlId="id">
           <Form.Label>Введите id аукциона</Form.Label>
           <Form.Control type="number" placeholder="Id" />
@@ -25,11 +26,11 @@ const Bet = () => {
           <Form.Control type="number" placeholder="PROFI" />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Сделать ставку
+          Повысить
         </Button>
       </Form>
     </Container>
   );
 };
 
-export default Bet;
+export default UpBet;

@@ -24,6 +24,7 @@ const Auc = () => {
 
   return (
     <Container>
+      <Form.Text>Информация аукциона</Form.Text>
       <Form.Group>
         <Form.Label>Введите Id аукциона</Form.Label>
         <Form.Control
@@ -40,35 +41,38 @@ const Auc = () => {
           Узнать
         </Button>
       </Form.Group>
-      {aucState.length > 0 && (
-        <Card
-          key={aucState.collectionId}
-          style={{ width: "18rem", margin: "20px" }}
-        >
-          <Card.Body>
-            <Card.Title>NFT</Card.Title>
-            <Card.Text>ID коллекции: {aucState.collectionId}</Card.Text>
-            <Card.Text>Текущий лидер: {aucState.leader}</Card.Text>
-            <Card.Text>Текущая ставка: {aucState.currentBet}</Card.Text>
-            <Card.Text>
-              Максимальная ставка: {aucState.maxPrice / 10 ** 6}
-            </Card.Text>
-            <Card.Text>
-              Время старта: {new Date(aucState.timeStart * 1000).toISOString()}
-            </Card.Text>
-            <Card.Text>
-              Время завершения:{" "}
-              {new Date(aucState.timeEnd * 1000).toISOString()}
-            </Card.Text>
-            {sortedState.map((el, idx) => (
+      {aucState.length > 0 &&
+        aucState.leader !== "0x0000000000000000000000000000000000000000" && (
+          <Card
+            key={aucState.collectionId}
+            style={{ width: "18rem", margin: "20px" }}
+          >
+            <Card.Body>
+              <Card.Title>NFT</Card.Title>
+              <Card.Text>ID коллекции: {aucState.collectionId}</Card.Text>
+              <Card.Text>Текущий лидер: {aucState.leader}</Card.Text>
               <Card.Text>
-                {" "}
-                Позиция: {idx + 1} Ставка: {el.amount}
+                Текущая ставка: {aucState.currentBet / 10 ** 6}
               </Card.Text>
-            ))}
-          </Card.Body>
-        </Card>
-      )}
+              <Card.Text>
+                Максимальная ставка: {aucState.maxPrice / 10 ** 6}
+              </Card.Text>
+              <Card.Text>
+                Время старта:{" "}
+                {new Date(aucState.timeStart * 1000).toISOString()}
+              </Card.Text>
+              <Card.Text>
+                Время завершения:
+                {new Date(aucState.timeEnd * 1000).toISOString()}
+              </Card.Text>
+              {sortedState.map((el, idx) => (
+                <Card.Text>
+                  Позиция: {idx + 1} Ставка: {el.amount / 10 ** 6}
+                </Card.Text>
+              ))}
+            </Card.Body>
+          </Card>
+        )}
     </Container>
   );
 };

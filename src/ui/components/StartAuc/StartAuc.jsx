@@ -11,6 +11,7 @@ const StartAuc = () => {
     e.preventDefault();
     const { target } = e;
     await getTime();
+    console.log(timeState);
     await Service.startAuc(
       target.id.value,
       target.start.value * 60 + Number(timeState),
@@ -18,6 +19,7 @@ const StartAuc = () => {
       target.price.value,
       walletState,
     );
+    console.log(target.start.value * 60 + Number(timeState));
   };
 
   return (
@@ -25,7 +27,7 @@ const StartAuc = () => {
       <Form onSubmit={handler}>
         <Form.Text>Запустить аукцион</Form.Text>
         <Form.Group className="mb-3" controlId="id">
-          <Form.Label>Введите id аукциона</Form.Label>
+          <Form.Label>Введите id коллекции</Form.Label>
           <Form.Control type="number" placeholder="Id" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="start">

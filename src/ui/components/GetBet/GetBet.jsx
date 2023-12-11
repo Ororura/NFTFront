@@ -23,7 +23,7 @@ const GetBet = () => {
       {betState.map((el) => (
         <>
           <p className="text-center">{el.owner}</p>
-          <p className="text-center">{el.amount}</p>
+          <p className="text-center">{el.amount / 10 ** 6} PROFI</p>
         </>
       ))}
     </Container>

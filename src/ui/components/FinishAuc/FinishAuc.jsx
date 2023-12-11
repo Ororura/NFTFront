@@ -1,35 +1,31 @@
 import React, { useContext } from "react";
-import { Button, Form } from "react-bootstrap";
-import Container from "../HOC/Container";
-import Service from "../../../services/Service";
 import { Context } from "../../../core/Context";
+import Service from "../../../services/Service";
+import Container from "../HOC/Container";
+import { Button, Form } from "react-bootstrap";
 
-const Bet = () => {
+const FinishAuc = () => {
   const { walletState } = useContext(Context);
   const handler = async (e) => {
     e.preventDefault();
     const { target } = e;
-    await Service.bet(target.id.value, target.bet.value, walletState);
+    await Service.finishAuc(target.id.value, walletState);
   };
 
   return (
     <Container>
       <Form onSubmit={handler}>
-        <Form.Text>Сделать ставку</Form.Text>
+        <Form.Text>Завершить аукцион</Form.Text>
         <Form.Group className="mb-3" controlId="id">
           <Form.Label>Введите id аукциона</Form.Label>
           <Form.Control type="number" placeholder="Id" />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="bet">
-          <Form.Label>Введите ставку</Form.Label>
-          <Form.Control type="number" placeholder="PROFI" />
-        </Form.Group>
         <Button variant="primary" type="submit">
-          Сделать ставку
+          Завершить
         </Button>
       </Form>
     </Container>
   );
 };
 
-export default Bet;
+export default FinishAuc;
