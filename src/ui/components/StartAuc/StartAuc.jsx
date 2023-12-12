@@ -14,8 +14,8 @@ const StartAuc = () => {
     console.log(timeState);
     await Service.startAuc(
       target.id.value,
-      target.start.value * 60 + Number(timeState),
-      target.end.value * 60 + Number(timeState),
+      target.start.value * 60,
+      target.end.value * 60,
       target.price.value,
       walletState,
     );
